@@ -1,3 +1,11 @@
+// 脚本优先执行
+//buildscript {
+//	repositories {
+//		mavenLocal()
+//		maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+//	}
+//}
+
 plugins {
 	id "base"
 	id "org.jetbrains.kotlin.jvm" apply false // https://youtrack.jetbrains.com/issue/KT-30276
@@ -25,6 +33,9 @@ allprojects {
 	group "org.springframework.boot"
 
 	repositories {
+		mavenCentral()
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+		maven { url 'https://maven.oschina.net/content/groups/public/' }
 		mavenCentral()
 		if (version.contains('-')) {
 			maven { url "https://repo.spring.io/milestone" }
